@@ -3,7 +3,7 @@ var map;
 var marker;
 var geocoder;
 function initMap() {
-    var input_address = '千葉県流山市木469番地'
+    var input_address = '東京都文京区'
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({
       'address':  input_address
