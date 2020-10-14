@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>Geocoder</title>
+        <style>
+            #map {
+                width: 100%;
+                height: 700px;
+                border: solid 2px red;
+            }
+            .maker{
+                width: 100px;
+                height: 100px;
+            }
+            h1{
+                color: blue;
+                padding: 10px;
+                border: solid 2px blue;
+                border-radius: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <h1 class="text-center">地名検索</h1>
+                </div>
+            </div>
+            <!-- 1行 -->
+            <div class="form-group row mt-3">
+                <label class="col-sm-2 col-form-label">地名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address">
+                </div>
+            </div>
+
+            <!-- 1行 -->
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary form-control" id="button">登録</button>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div id="map" class="col-sm-12"></div>
+            </div>
+        </div>
+        
+        <!--<input type="text" id="address">-->
+        <!--<input type="submit" value="検索" id="button">-->
+        
+        <script src="geocoder.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALg70uaMcYjkzto9oPmiXyODIXCvpvAzg&callback=initMap"></script>
+    </body>
+</html>

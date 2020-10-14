@@ -1,0 +1,14 @@
+Google Map API キーの取得
+# https://www.zenrin-datacom.net/business/gmapsapi/api_key/
+プロジェクト名： GoogleMapAPI
+
+Maps JavaScript API 有効化
+
+「認証情報」リンクをクリックして、「認証情報を作成」メニューから「APIキー」を選択します。
+GoogleMapAPIキー
+AIzaSyALg70uaMcYjkzto9oPmiXyODIXCvpvAzg
+
+GeocoderAPI
+AIzaSyC2HfaMK-NN4ebh3ISX_qrWsC7S0z8Jmgs
+
+https://www.tam-tam.co.jp/tipsnote/javascript/post7755.html
