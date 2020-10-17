@@ -12,3 +12,18 @@ GeocoderAPI
 AIzaSyC2HfaMK-NN4ebh3ISX_qrWsC7S0z8Jmgs
 
 https://www.tam-tam.co.jp/tipsnote/javascript/post7755.html
+
+create database gmap default character set utf8;
+create table placedata(
+id int auto_increment primary key,
+classNo int not null,
+class varchar(50) not null,
+text varchar(50) not null,
+name varchar(50) not null,
+status varchar(50) not null,
+lat float not null,
+lng float not null,
+img varchar(50) not null
+);
+
+insert into placedata(classNo, class, text, name, status, lat, lng, img) values(1, "世界最大（自然）", "世界最大の流量の滝","イグアスの滝", "went", -25.695259, -54.4366662, "1.jpg");
