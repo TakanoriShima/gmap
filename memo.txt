@@ -27,3 +27,4 @@ img varchar(50) not null
 );
 
 insert into placedata(classNo, class, text, name, status, lat, lng, img) values(1, "世界最大（自然）", "世界最大の流量の滝","イグアスの滝", "went", -25.695259, -54.4366662, "1.jpg");
+insert into placedata(classNo, class, text, name, status, lat, lng, img) values(1, "世界最大（自然）", "世界最大の流量の滝","イグアスの滝２", "went", -26, -54.4366662, "1.jpg");

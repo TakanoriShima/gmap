@@ -2,42 +2,20 @@
 var map;
 var marker;
 var geocoder;
+
+// 初期画面
 function initMap() {
-    var input_address = '東京都文京区'
-    geocoder = new google.maps.Geocoder();
-    geocoder.geocode({
-      'address':  input_address
-   }, function(results, status) { // 結果
-        if (status === google.maps.GeocoderStatus.OK) { // ステータスがOKの場合
-          map = new google.maps.Map(document.getElementById('map'), {
-                center: results[0].geometry.location, // 地図の中心を指定
-               zoom: 15 // 地図のズームを指定
-           });
-         marker = new google.maps.Marker({
-               position: results[0].geometry.location, // マーカーを立てる位置を指定
-                map: map // マーカーを立てる地図を指定
-           });
-          infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-            content:"<div class='maker'>" + input_address + "</div>" // 吹き出しに表示する内容
-            });
-            //marker.addListener('click', function() { // マーカーをクリックしたとき
-            infoWindow.open(map, marker); // 吹き出しの表示
-            //});  
-            var address = document.getElementById("address");
-            address.value = input_address; 
-            var latlng = results[0].geometry.location;
-            var glat = latlng.lat();
-            var glng = latlng.lng();
-            var lat = document.getElementById("lat");
-            var lng = document.getElementById("lng");
-            lat.value = glat;
-            lng.value = glng;
-                        
-     } else { // 失敗した場合
-          alert(status);
-      }
-   });
+   navigator.geolocation.getCurrentPosition(
+        function(position) {
+            // 現在地の緯度経度所得
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+            draw_by_latlng(lat, lng);
+        }
+   );
 }
+
+// 住所から地図を表示
 function draw_by_address(input_address){
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({
@@ -73,6 +51,7 @@ function draw_by_address(input_address){
    });
 }
    
+// 緯度経度から地図を表示
 function draw_by_latlng(input_lat, input_lng){
     var latLngInput = new google.maps.LatLng(input_lat, input_lng);
     var geocoder = new google.maps.Geocoder();
@@ -105,8 +84,7 @@ function draw_by_latlng(input_lat, input_lng){
           //地図上に緯度・経度、住所の情報を表示します。
           new google.maps.InfoWindow(
             {
-              content: "(緯度, 経度) = " + latlng.toString() +
-                      "<br />" + input_address
+              content: input_address
             }
           ).open(
             map,
@@ -128,7 +106,7 @@ function draw_by_latlng(input_lat, input_lng){
    });
 }
    
-   
+// リスナー登録
 window.onload = function(){
    var address_search_button = document.getElementById("address_search_button");
    var latlng_search_button = document.getElementById("latlng_search_button");
